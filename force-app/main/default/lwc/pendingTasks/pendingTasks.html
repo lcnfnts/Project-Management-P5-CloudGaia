@@ -1,0 +1,33 @@
+<template>
+    <div class="lwc-container">
+        <template if:false={data}>
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <template if:true={data}>
+            <p class="containerTitle">Pending tasks</p>
+            <template if:false={data.hasTasks}>
+                <p>There are no pending tasks for this project.</p>
+            </template>
+            <template if:true={data.hasTasks}>
+                <div class="tasksLayout w-100">
+                    <p class="w-20 bold">Task</p>
+                    <p class="w-20 bold">Resource</p>
+                    <p class="w-20 bold">Status</p>
+                    <p class="w-20 bold">Estimated Hours</p>
+                    <p class="w-20 bold">Recorded Hours</p>
+                </div>
+                <template for:each={data.tasks} for:item="task">
+                    <div class="tasksLayout" key={task.Summary__c}>
+                        <p class="w-20">{task.Summary__c}</p>
+                        <p class="w-20">{task.Project_Resource__r.Resource__r.Name}</p>
+                        <p class="w-20">{task.Status__c}</p>
+                        <p class="w-20">{task.Estimated_Hours__c}</p>
+                        <p class="w-20">{task.Recorded_Hours__c}</p>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>

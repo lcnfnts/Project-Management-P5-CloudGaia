@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Resource_new_CLayout</fullName>
+    <fields>Resource__c</fields>
+    <label>Project Resource new CLayout</label>
+</CompactLayout>

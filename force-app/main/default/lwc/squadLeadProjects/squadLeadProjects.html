@@ -1,0 +1,20 @@
+<template>
+    <template if:true={data}>
+        <template if:true={data.hasProjects}>
+            <div class="componentContainer">
+                <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle} class="w-100">
+                    <lightning-accordion-section name="A" label="My squad's projects" class="w-100">
+                        <template for:each={data.projects} for:item="project">
+                            <div key={project.Id}>
+                                <a data-projectid={project.Id} onclick={handleProjectClick}>{project.Name} - {project.Status__c}</a>
+                            </div>
+                        </template>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+        </template>
+    </template>
+    <template if:true={error}>
+        <p>ERROR WRONG</p>
+    </template>
+</template>

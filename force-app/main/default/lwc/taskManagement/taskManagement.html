@@ -1,0 +1,53 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="projectsContainer">
+        <template if:false={data}>
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <template if:true={data}>
+            <template if:false={data.hasTasks}>
+                <p>You have no pending tasks.</p>
+            </template>
+            <template if:true={data.hasTasks}>
+                <template for:each={TaskWrapperContainer} for:item="projectWithTask">
+                    <div class="projectWithTasksContainer" key={projectWithTask.project.Id}>
+                        <div class="projectTitleLayout">
+                            <p class="projectTitle">{projectWithTask.project.Name}</p>
+                            <p class="pendingTasks">Pending tasks: {projectWithTask.projectPendingTasks}</p>
+                        </div>
+                        <div class="taskLayout b">
+                            <p class="taskLayoutChild">Task Name</p>
+                            <p class="taskLayoutChild w-15">Status</p>
+                            <p class="taskLayoutChild w-10">Estimated Hours</p>
+                            <p class="taskLayoutChild w-10">Recorded Hours</p>
+                            <p class="taskLayoutChild w-40">Actions</p>
+                        </div>
+                        <template for:each={projectWithTask.tasks} for:item="task">
+                            <div key={task.Id} class="taskLayout">
+                                <p class="taskLayoutChild w-0">{task.Summary__c}</p>
+                                <p class="taskLayoutChild w-15">{task.Status__c}</p>
+                                <p class="taskLayoutChild w-10 estimatedHours">{task.Estimated_Hours__c}</p>
+                                <p class="taskLayoutChild w-10 recordedHours">{task.Recorded_Hours__c}</p>
+                                <template if:true={task.isStarted}>
+                                    <div class="taskLayoutChild buttonsLayout">
+                                        <input type="number" class="myButton lwc-input numberInput" placeholder="Hours" data-taskid={task.Id}>
+                                        <lightning-button label="Submit" class="slds-m-left_x-small myButton" data-taskid={task.Id} onclick={handleSubmitClick}></lightning-button>
+                                        <lightning-button variant="brand" class="slds-m-left_x-small myButton" label="Complete" data-taskid={task.Id} onclick={handleCompleteClick} disabled></lightning-button>
+                                    </div>
+                                </template>
+                                <template if:false={task.isStarted}>
+                                    <div class="taskLayoutChild buttonsLayout">
+                                        <lightning-button variant="brand" class="slds-m-left_x-small myButton" label="Start" onclick={handleStartClick} data-taskid={task.Id}></lightning-button>
+                                    </div>
+                                </template>
+                                <!-- <c-task-hours task={task}></c-task-hours> -->
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>

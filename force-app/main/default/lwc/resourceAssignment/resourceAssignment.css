@@ -1,0 +1,105 @@
+.resourcesTitle{
+    font-size: large;
+    font-weight: 650;
+    width: max-content;
+    border-bottom: solid 3px #1b96ff;
+    padding: 0px 2px;
+}
+.assignmentContainer{
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+}
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.hoursLayout{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hoursLayout p{
+    width: 20%;
+}
+.projectProductTitle{
+    padding: 1rem;
+}
+.dateInput{
+    margin:4px;
+}
+.projectProductRole{
+    font-size: large;
+    width: max-content;
+    padding: 2px;
+    /*text-decoration: underline 2px solid #1b96ff;*/
+}
+.userBox{
+    display: flex;
+    position: relative;
+    /*padding: 0.5rem 1.2rem;*/
+    justify-content: space-between;
+    margin: 0.7rem 0rem;
+    border-top: 1px solid #c4c3c3;
+    column-gap: 1px;
+}
+.hours{
+    font-size:medium;
+    font-weight: 400;
+}
+.hoursMissing{
+    color: #747474;
+}
+.userBoxParagraph{
+    width: 16%;
+}
+.lastUserBoxChild{
+    padding-bottom: 0.7rem;
+    margin: 0.5rem 0rem;
+    border-bottom: 1px solid #c4c3c3;
+}
+.validateRed{
+    border: 1px solid red;
+    border-radius: 4px;
+}
+.errorMessage{
+    position: absolute;
+    top: -10%;
+    right: 3%;
+    width: max-content;
+    background-color: white;
+    color: red;
+    padding: 0px 4px;
+}
+.allAssignedText{
+    font-size: larger;
+    padding: 1rem 0rem;
+    color: #747474;
+}
+.economicProfit{
+    font-size: medium;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 2px 5px;
+    color: #41b658;
+    width: max-content;
+    border: 2px solid #41b658;
+}
+.economicLoss{
+    font-size: medium;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 2px 5px;
+    color: #ba0517;
+    width: max-content;
+    border: 2px solid #ba0517;
+}
+.titleLayout{
+    display: flex;
+    justify-content: space-between;
+}

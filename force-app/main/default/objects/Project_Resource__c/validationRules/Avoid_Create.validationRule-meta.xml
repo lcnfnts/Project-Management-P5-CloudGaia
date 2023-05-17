@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Avoid_Create</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Project__r.Status__c , &quot;In Progress&quot;)
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t add resources while the project is in progress.</errorMessage>
+</ValidationRule>

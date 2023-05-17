@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Error_Project_Resource</fullName>
+    <active>true</active>
+    <description>The Squad Lead assigned must already be a Resource of the project.</description>
+    <errorConditionFormula>Squad_Lead__r.Project__r.Id !=  Id &amp;&amp;  NOT( ISBLANK(Squad_Lead__r.Project__r.Id  ) )</errorConditionFormula>
+    <errorDisplayField>Squad_Lead__c</errorDisplayField>
+    <errorMessage>The Squad Lead must be one of the resources already assigned to the project.</errorMessage>
+</ValidationRule>

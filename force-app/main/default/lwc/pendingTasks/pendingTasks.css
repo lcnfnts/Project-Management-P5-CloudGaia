@@ -1,0 +1,42 @@
+.lwc-container{
+    background-color: #ffffff;
+    border: 1px solid #c9c9c9;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+}
+.containerTitle{
+    font-size: large;
+    font-weight: 650;
+    width: max-content;
+    border-bottom: solid 3px #1b96ff;
+    padding: 0px 2px;
+    margin-bottom: 4px;
+}
+.tasksLayout{
+    display: flex;
+    padding: 8px;
+    border-bottom: 1px solid #c9c9c9;
+}
+.bold{
+    font-weight: bold;
+}
+.w-100{
+    width: 100%;
+}
+.w-30{
+    width: 30%;
+}
+.w-20{
+    width: 20%;
+}
+.w-10{
+    width: 10%;
+}
+.exampleHolder{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}

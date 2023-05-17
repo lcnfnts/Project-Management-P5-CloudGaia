@@ -1,0 +1,52 @@
+<template>
+    <template if:true={data}>
+        <template if:true={data.isInKickoff}>
+            <div class="assignmentContainer">
+                <template if:true={data.economicStatus}>
+                    <div class="titleLayout">
+                        <h1 class="resourcesTitle">Resources Assignement</h1>
+                        <span class="economicProfit">PROFIT</span>
+                    </div>
+                </template>
+                <template if:false={data.economicStatus}>
+                    <div class="titleLayout">
+                        <h1 class="resourcesTitle">Resources assignment to the project</h1>
+                        <span class="economicLoss">LOSS</span>
+                    </div>
+                </template>
+                <template if:true={data.hasRequirements}>
+                    <template for:each={requirements} for:item="requirement">
+                        <div key={requirement.projectProduct.Id} class="projectProductTitle">
+                            <div class="hoursLayout hours">
+                                <p class="projectProductRole">{requirement.projectProduct.Role__c}</p>
+                                <p>Hours required: {requirement.projectProduct.Quantity__c}</p>
+                                <p class="hoursMissing">Hours pending: {requirement.projectProduct.hoursMissing}</p>
+                            </div>
+                            <template for:each={requirement.users} for:item="user" for:index="index">
+                                <div key={user.Id} class="d-flex userBox">
+                                    <lightning-input type="checkbox" name="isSelected" class="inputCheckbox"></lightning-input>
+                                    <p class="userBoxParagraph" data-userid={user.Id}>{user.Name}</p>
+                                    <p class="userBoxParagraph">{user.Rate__c} $/hour</p>
+                                    <lightning-input class='dateInput userBoxParagraph startDate' type="date" name="startDate" label="Start:" timezone="America/Argentina/Buenos_Aires"></lightning-input>
+                                    <lightning-input class='dateInput userBoxParagraph closeDate' type="date" name="finishDate" label="Finish:" timezone="America/Argentina/Buenos_Aires"></lightning-input>
+                                    <lightning-input class='userBoxParagraph hoursAssigned' type="number" name="hoursAssigned" label="Hours:" min="0"></lightning-input>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <lightning-button class='assignButton' label="Assign resources" title="Toggle content action" onclick={handleAssignClick}>
+                    </lightning-button>
+                </template>
+                <template if:false={data.hasRequirements}>
+                    <p class="allAssignedText"> This project already has all the required resources assigned.</p>
+                </template>
+            </div>         
+        </template>
+    </template>
+    <template if:false={data}>
+        <div class="assignmentContainer">
+            <p>Loading...</p>
+        </div>
+    </template>
+</template>
